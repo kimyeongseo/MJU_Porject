@@ -1,0 +1,139 @@
+{
+    "items": {
+        "data": {
+            "item": [
+                [
+                    {
+                        "id": 1,
+                        "date": "2021/05/12",
+                        "category": "의류",
+                        "title": "옷",
+                        "summary": "한 번만 입었습니다!",
+                        "picture": "https://static.coupangcdn.com/image/rs_quotation_api/qoclupn9/d3fdc78db16f4f5ba6fb6b54bbd68d83.jpg",
+                        "price": 100000,
+                        "state": "판매 중"
+                    },
+                    {
+                        "id": 2,
+                        "date": "2021/05/12",
+                        "category": "책·문구류",
+                        "title":  "오만과 편견",
+                        "summary": "인생 책!",
+                        "picture": "http://image.kyobobook.co.kr/images/book/xlarge/223/x9788939550223.jpg",
+                        "price": 10000,
+                        "state": "판매 중"
+                    },
+                    {
+                        "id": 3,
+                        "date": "2021/05/12",
+                        "category": "화장품",
+                        "title": "립스틱",
+                        "summary": "사용한 적 없습니다.",
+                        "picture":"https://salerank.net/wp-content/uploads/2020/11/4011019.jpg",
+                        "price": 20000,
+                        "state": "판매 중"
+                    },
+                    {
+                        "id": 4,
+                        "date": "2021/05/12",
+                        "category": "의류",
+                        "title": "옷",
+                        "summary": "한 번만 입었습니다!",
+                        "picture": "https://static.coupangcdn.com/image/rs_quotation_api/qoclupn9/d3fdc78db16f4f5ba6fb6b54bbd68d83.jpg",
+                        "price": 100000,
+                        "state": "판매 중"
+                    },
+                    {
+                        "id": 5,
+                        "category": "화장품",
+                        "title": "립스틱",
+                        "summary": "사용한 적 없습니다.",
+                        "picture":"https://salerank.net/wp-content/uploads/2020/11/4011019.jpg",
+                        "price": 20000,
+                        "state": "판매 중"
+                    },
+                    {
+                        "id": 6,
+                        "date": "2021/05/12",
+                        "category": "기기류",
+                        "title": "노트북",
+                        "summary": "1년 사용했습니다.",
+                        "picture": "https://newsimg.sedaily.com/2022/03/13/263EFZDRIH_1.jpg",
+                        "price": 1000000,
+                        "state": "판매 완료"
+                    },
+                    {
+                        "id": 7,
+                        "date": "2021/05/12",
+                        "category": "책·문구류",
+                        "title":  "오만과 편견",
+                        "summary": "인생 책!",
+                        "picture": "http://image.kyobobook.co.kr/images/book/xlarge/223/x9788939550223.jpg",
+                        "price": 10000,
+                        "state": "판매 완료"
+                    },
+                    {
+                        "id": 8,
+                        "date": "2021/05/12",
+                        "category": "기기류",
+                        "title": "노트북",
+                        "summary": "1년 사용했습니다.",
+                        "picture": "https://newsimg.sedaily.com/2022/03/13/263EFZDRIH_1.jpg",
+                        "price": 1000000,
+                        "state": "판매 완료"
+                    },
+                    {
+                        "id": 9,
+                        "date": "2021/05/12",
+                        "category": "책·문구류",
+                        "title":  "오만과 편견",
+                        "summary": "인생 책!",
+                        "picture": "http://image.kyobobook.co.kr/images/book/xlarge/223/x9788939550223.jpg",
+                        "price": 10000,
+                        "state": "판매 완료"
+                    },
+                    {
+                        "id": 10,
+                        "date": "2021/05/12",
+                        "category": "기기류",
+                        "title": "노트북",
+                        "summary": "1년 사용했습니다.",
+                        "picture": "https://newsimg.sedaily.com/2022/03/13/263EFZDRIH_1.jpg",
+                        "price": 1000000,
+                        "state": "판매 중"
+                    },
+                    {
+                        "id": 11,
+                        "date": "2021/05/12",
+                        "category": "책·문구류",
+                        "title":  "오만과 편견",
+                        "summary": "인생 책!",
+                        "picture": "http://image.kyobobook.co.kr/images/book/xlarge/223/x9788939550223.jpg",
+                        "price": 10000,
+                        "state": "판매 완료"
+                    },
+                    {
+                        "id": 12,
+                        "date": "2021/05/12",
+                        "category": "화장품",
+                        "title": "립스틱",
+                        "summary": "사용한 적 없습니다.",
+                        "picture":"https://salerank.net/wp-content/uploads/2020/11/4011019.jpg",
+                        "price": 20000,
+                        "state": "판매 완료"
+                    },
+                    {
+                        "id": 13,
+                        "date": "2021/05/12",
+                        "category": "의류",
+                        "title": "옷",
+                        "summary": "한 번만 입었습니다!",
+                        "picture": "https://static.coupangcdn.com/image/rs_quotation_api/qoclupn9/d3fdc78db16f4f5ba6fb6b54bbd68d83.jpg",
+                        "price": 100000,
+                        "state": "판매 중"
+                    }
+                ]
+            ]
+        }
+    }
+}

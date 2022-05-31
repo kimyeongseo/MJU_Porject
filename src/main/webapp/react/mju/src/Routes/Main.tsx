@@ -1,51 +1,64 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { getItemData } from '../api';
+import { getKoreaData, getTorontoData, getVancouverData } from '../lib/weather';
 
-interface MainProps{
+import Clock from 'react-live-clock';
+
+interface MainProps {
     state: string;
 }
 
 const MainWrap = styled.div`
+color: #3a3a3a;
+`;
+
+const Title = styled.div`
+text-align: center;
+font-size: 35px;
+font-weight: 700;
+`;
+
+const WeatherContainer = styled.div`
 display: flex;
 justify-content: center;
-section{
-    width: 1000px;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 1rem;
-    justify-items: center;
-}
+margin-top: 30px;
 `;
-const ItemCard = styled.div<MainProps>`
-background-color: ${(props)=> props.state === "판매 완료" && "rgba(1, 1, 1, 0.7)"};
-border: 1px solid black;
+const TimeContainer = styled.div`
+display: flex;
+justify-content: center;
+font-size: 40px;
+text-align: center;
+line-height: 90px;
+`;
 
-.itemCard_itemInfo{
-    padding-left: 5px;
-}
+const WeatherItem = styled.div`
+margin-right:10px;
+border: 1px solid #3a3a3a;
+`;
 
-.itemCard_itemTitle{
-    margin: 5px 0;
+const TimeItem = styled.div`
+.clock{
     display: block;
-    font-size: 18px;
+    width: 250px;
+    margin: 0px 20px;
+    height: 90px;
+    box-shadow:0 1px 1px rgba(0,0,0,0.25),0 2px 2px rgba(0,0,0,0.2),0 4px 4px rgba(0,0,0,0.15),0 8px 8px rgba(0,0,0,0.1),0 16px 16px rgba(0,0,0,0.05);
 }
 
-.itemCard_itemState{
-    border: 1px solid gray;
-    color: ${(props)=> props.state === "판매 완료" && "white"};
-    width: 70px;
-    text-align: center;
+span{
+    font-size: 30px;
 }
 
-.itemCard_itemImg{
-    opacity: ${(props)=> props.state === "판매 완료" && "0.3"};
-}
+
 `;
+
+
 
 function Main() {
-    const [itemData, setItemData] = useState<any[]>([]);
+    const [koreaData, setKoreaData] = useState<any>();
+    const [torontoData, setTorontoData] = useState<any>();
+    const [vancouverData, setVancouverData] = useState<any>();
 
     async function postData() {
         try {
@@ -68,30 +81,61 @@ function Main() {
           })();
       }, []);
 
+
     useEffect(() => {
         (async () => {
-            const data = await getItemData();
-            setItemData(data);
+            const korea = await getKoreaData();
+            const vancouver = await getVancouverData();
+            const toronto = await getTorontoData();
+            setKoreaData(korea);
+            setTorontoData(toronto);
+            setVancouverData(vancouver);
         })();
     }, []);
 
     return (
         <MainWrap>
-            <section>
-                
-            {  itemData && itemData.map((data: any) =>
-             <ItemCard state={data.state}>
-             <img className='itemCard_itemImg' width="200" height="250" src={data.picture} alt={data.title} />
-             <div className='itemCard_itemInfo' key={data.id}>
-                 <span className='itemCard_itemTitle'>{data.title}</span>
-                 <span className='itemCard_itemPrice'>{data.price}원</span>
-                 <div className='itemCard_itemState'>{data.state}</div>
-                 {/* <span className='itemCard_itemDate'>{data.date}</span> */}
-             </div>
-         </ItemCard>)
+              <Title>Weather</Title>
+            <WeatherContainer>
+                {koreaData != null ?
+                    <WeatherItem>
+                        <div>{koreaData.name}</div>
+                        <div>{koreaData.temp}°</div>
+                        <div>습도: {koreaData.hum}%</div>
+                        <div>체감 온도: {koreaData.tempFeel}°</div>
+                        <div>바람 {koreaData.wind}m/s</div>
+                    </WeatherItem>
+                    : <>Loding...</>}
 
-            }
-            </section>
+                {torontoData != null ?
+                    <WeatherItem>
+                        <div>{torontoData.name}</div>
+                        <div>{torontoData.temp}°</div>
+                        <div>습도: {torontoData.hum}%</div>
+                        <div>체감 온도: {torontoData.tempFeel}°</div>
+                        <div>바람 {torontoData.wind}m/s</div>
+
+                    </WeatherItem>
+                    : <>Loding...</>}
+
+                {vancouverData != null ?
+                    <WeatherItem>
+                        <div>{vancouverData.name}</div>
+                        <div>{vancouverData.temp}°</div>
+                        <div>습도: {vancouverData.hum}%</div>
+                        <div>체감 온도: {vancouverData.tempFeel}°</div>
+                        <div>바람 {vancouverData.wind}m/s</div>
+
+                    </WeatherItem>
+                    : <>Loding...</>}
+            </WeatherContainer>
+            <Title>Time</Title>
+            <TimeContainer>
+                <TimeItem> <span>Korea</span><Clock className='clock'  format={'HH:mm:ss'} ticking={true} timezone={'Asia/Seoul'}/></TimeItem>
+                <TimeItem><span>Toronto</span><Clock style={{backgroundColor: '#3a3a3a', color: "#fcfcfc"}}  className='clock' format={'HH:mm:ss'} ticking={true} timezone={'America/Toronto'}/></TimeItem>
+                <TimeItem><span>Vancouver</span><Clock className='clock' format={'HH:mm:ss'} ticking={true} timezone={'America/Vancouver'}/></TimeItem>
+            </TimeContainer>
+
         </MainWrap>
     );
 }

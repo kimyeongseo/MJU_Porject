@@ -24,7 +24,7 @@ public class ClientServiceImpl implements ClientService{
     @Override
     public void signUp(Client client) {
         Optional<Client> temp = clientRepository.findById(client.getId());
-        if(temp == null) {
+        if(temp != null) {
             clientRepository.save(client);
         } else {
             throw new AlreadyExistClientException();

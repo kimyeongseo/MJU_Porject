@@ -14,4 +14,6 @@ public interface ItemService {
     public List<Item> getWritten(String clientId);
 
     public void recommendation(String clientId, int itemId);
+
+    public List<Item> getItemList();
 }

@@ -1,4 +1,4 @@
-package com.mju.mobile.Config.Controller;
+package com.mju.mobile.Controller;
 
 import com.mju.mobile.Exception.Auth.ClientNotFoundException;
 import com.mju.mobile.Exception.Auth.WrongPasswordException;

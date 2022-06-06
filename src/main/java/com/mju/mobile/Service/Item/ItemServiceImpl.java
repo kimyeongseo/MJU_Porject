@@ -24,11 +24,8 @@ public class ItemServiceImpl implements ItemService{
     @Override
     public void save(Item item, List<MultipartFile> itemPhotoSaveRequest) throws IOException {
         Optional<Integer> id = this.itemRepository.getItemId(item.getOwnerId(), item.getTitle());
-        if(id != null) {
-            throw new AlreadyExistArticleException();
-        } else {
-            this.itemRepository.save(item);
-        }
+        this.itemRepository.save(item);
+        id = this.itemRepository.getItemId(item.getOwnerId(), item.getTitle());
         List<String> photoUrls = this.itemPhotoService.save(itemPhotoSaveRequest);
         for(String url: photoUrls) {
             ItemPhoto itemPhoto = new ItemPhoto();
@@ -53,5 +50,10 @@ public class ItemServiceImpl implements ItemService{
     @Override
     public void recommendation(String clientId, int itemId) {
         this.itemRepository.recommendation(clientId, itemId);
+    }
+
+    @Override
+    public List<Item> getItemList() {
+        return this.itemRepository.findAll();
     }
 }

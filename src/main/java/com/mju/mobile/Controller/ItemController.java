@@ -1,4 +1,4 @@
-package com.mju.mobile.Config.Controller;
+package com.mju.mobile.Controller;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -24,6 +24,12 @@ public class ItemController {
 
     private final ItemService itemService;
     private final ResponseService responseService;
+
+    @GetMapping("/all")
+    public CommonResponse getItemList() {
+        List<Item> itemList = itemService.getItemList();
+        return responseService.listResponse(itemList);
+    }
 
     @GetMapping("/{itemId}")
     public CommonResponse itemDetail(@PathVariable("itemId") Integer id) {

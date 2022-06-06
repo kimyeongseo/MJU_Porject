@@ -1,4 +1,4 @@
-package com.mju.mobile.Config.Controller;
+package com.mju.mobile.Controller;
 
 import com.mju.mobile.Model.Client.Client;
 import com.mju.mobile.Model.Item.Item;
